@@ -13,11 +13,11 @@ module SrtProcessor
     private
 
     def contents
-      IO.read(@file).split("\r\n\r\n")
+      IO.read(@file).split("\n\n")
     end
 
     def dialog_attributes(dialog_source)
-      id, time, text = dialog_source.split("\r\n", 3)
+      id, time, text = dialog_source.split("\n", 3)
       start_time, end_time = time.split(" --> ")
       [id, start_time, end_time, text]
     end
